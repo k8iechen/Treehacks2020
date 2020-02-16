@@ -36,6 +36,8 @@ const useStyles = makeStyles(theme => ({
 export default function Review() {
   const classes = useStyles();
 
+  console.log(fetch('http://localhost:3000/'))
+
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
