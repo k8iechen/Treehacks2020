@@ -76,6 +76,20 @@ function getStepContent(step, getter, setter) {
   }
 }
 
+function sendData(getter) {
+  fetch('http://localhost:3000/users', {
+    method: 'OPTIONS',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': '*',
+      'Access-Control-Allow-Headers': '*'
+    },
+    body: JSON.stringify(getter)
+  })
+}
+
 export default function Treehacks() {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);

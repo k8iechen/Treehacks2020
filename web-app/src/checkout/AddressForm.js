@@ -15,6 +15,11 @@ export default function AddressForm({setDataToSend}) {
   const [urea, setUrea] = useState('');
   const [cholestrol, setCholestrol] = useState('');
   const [sodium, setSodium] = useState('');
+  const [test1, setTest1] = useState(0);
+  const [test2, setTest2] = useState(0);
+  const [test3, setTest3] = useState(0);
+  const [test4, setTest4] = useState(0);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setDataToSend({
@@ -25,7 +30,11 @@ export default function AddressForm({setDataToSend}) {
       glucose:glucose,
       urea: urea,
       sodium: sodium,
-      cholestrol: cholestrol
+      cholestrol: cholestrol,
+      test1: test1,
+      test2: test2,
+      test3: test3,
+      test4: test4,
     });
   }
   return (

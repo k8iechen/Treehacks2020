@@ -8,7 +8,18 @@ var bodyParser = require('body-parser');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
+// var admin = require("firebase-admin");
+// var firebase = require("firebase");
+
 var app = express();
+
+// app.use(admin);
+
+// firebase.initializeApp({
+//   credential: admin.credential.applicationDefault(),
+//   databaseURL: "https://treehacks20.firebaseio.com"
+// });
+// app.use(firebase);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

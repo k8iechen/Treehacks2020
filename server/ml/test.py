@@ -1,7 +1,10 @@
-from sys import stdin, stdout
+import sys
 
 def main():
-    stdout.write("test 123 test 123")
+    print("debug")
+    print(sys.argv[1] + "\n" + sys.argv[2])
+    
+    sys.stdout.flush()
 
 if __name__ == "__main__":
     main()
