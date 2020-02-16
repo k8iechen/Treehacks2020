@@ -1,0 +1,39 @@
+Glucose => diabetes
+1 - Glycated hemoglobin (A1C) test
+2 - Urine test
+
+Urea => kidney failure
+3 - Glomerular Filtration Rate (GFR) test
+- Urine test
+
+Electrolytes => organ damage
+4 - CT scan
+5 - MRI scan
+
+Cholesterol => heart disease
+6 - Vertical Auto Profile
+
+
+
+Glucose => diabetes
+ONE
+- Glycated hemoglobin (A1C) test
+- Urine test
+hunger, weight loss, fatigue, irritability, frequent urination, thirst, slow healling bruises
+
+Urea => kidney failure
+TWO
+- Glomerular Filtration Rate (GFR) test
+- Urine test
+reduced urine, swelling of legs/ankles, shortness of breath, nausea, chest pain, seizures
+
+Electrolytes => organ damage
+THREE
+- CT scan
+- MRI scan
+abdominal pain, blood in urine, cold sweat
+
+Cholesterol => heart disease
+FOUR
+- Vertical Auto Profile
+shortness of breath, chest pain, neck pain, numbness, coldness, back pain

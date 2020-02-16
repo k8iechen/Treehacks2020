@@ -1,0 +1,16 @@
+{"class":"1", "sentence":"Patient reported frequent feelings of hunger and strange weight loss."}
+{"class":"1", "sentence":"Patient seemed irritable and showed slow healing bruises."}
+{"class":"1", "sentence":"Patient seemed to have lost weight and was often thirsty"}
+{"class":"1", "sentence":"Patient was thirsty, hungry, and irritable"}
+{"class":"2", "sentence":"Patient has swollen ankles."}
+{"class":"2", "sentence":"Patient experienced shortness of breath, nausea and chest pain."}
+{"class":"2", "sentence":"Patient's legs were swollen and he complained of nausea."}
+{"class":"2", "sentence":"Patient reported frequent swelling in lower limbs and chest pain"}
+{"class":"3", "sentence":"Patient has experienced abdominal pain and is sweating profusely"}
+{"class":"3", "sentence":"Patient broke out in cold sweat"}
+{"class":"3", "sentence":"There was blood in patient's urine"}
+{"class":"3", "sentence":"Patient's urine contained blood and the patient experienced frequent abdominal pain"}
+{"class":"4", "sentence":"Patient experienced shortness of breath and numbness in limbs"}
+{"class":"4", "sentence":"Patient reported chest and back pain"}
+{"class":"4", "sentence":"Patient was easily out of breath and reported neck pain"}
+{"class":"4", "sentence":"Patient reported frequent neck and back pain"}
