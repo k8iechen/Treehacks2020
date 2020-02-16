@@ -36,7 +36,18 @@ const useStyles = makeStyles(theme => ({
 export default function Review() {
   const classes = useStyles();
 
-  console.log(fetch('http://localhost:3000/'))
+  fetch('http://localhost:3000/', {
+    method: 'OPTIONS',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+    },
+    body: JSON.stringify({
+      "firstParam": "yourValue",
+      "secondParam": "yourOtherValue"
+    })
+  });
 
   return (
     <React.Fragment>
