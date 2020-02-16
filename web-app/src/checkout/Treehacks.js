@@ -11,7 +11,6 @@ import Button from '@material-ui/core/Button';
 import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
 import AddressForm from './AddressForm';
-import PaymentForm from './PaymentForm';
 import Review from './Review';
 
 function Copyright() {
@@ -119,8 +118,7 @@ export default function Treehacks() {
                   Thank you for your order.
                 </Typography>
                 <Typography variant="subtitle1">
-                  Your order number is #2001539. We have emailed your order confirmation, and will
-                  send you an update when your order has shipped.
+                  Thank you for going above and beyond your duty! We were glad to be at your service :)
                 </Typography>
               </React.Fragment>
             ) : (
