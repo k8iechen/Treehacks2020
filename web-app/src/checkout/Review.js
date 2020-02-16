@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import List from '@material-ui/core/List';
@@ -33,32 +33,39 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function Review() {
+export default function Review(dataToSend) {
   const classes = useStyles();
-
+  const [recommendedTests, setrecommendedTests] = useState([]);
+  if (recommendedTests.length === 0) {
   fetch('http://localhost:3000/', {
     method: 'OPTIONS',
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
       'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': '*',
+      'Access-Control-Allow-Headers': '*'
     },
-    body: JSON.stringify({
-      "firstParam": "yourValue",
-      "secondParam": "yourOtherValue"
-    })
-  });
-
+    body: JSON.stringify(dataToSend)
+  })
+  .then((response) => {
+    return response.json();
+  })
+  .then((responseData) => {
+    console.log(responseData.tests);
+    setrecommendedTests(responseData.tests);
+  })
+}
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
         Order summary
       </Typography>
       <List disablePadding>
-        {products.map(product => (
-          <ListItem className={classes.listItem} key={product.name}>
-            <ListItemText primary={product.name} secondary={product.desc} />
-            <Typography variant="body2">{product.price}</Typography>
+        {recommendedTests.map(prodadfaduct => (
+          <ListItem className={prodadfaduct} key={prodadfaduct}>
+            <ListItemText primary={prodadfaduct} secondary={prodadfaduct} />
+            <Typography variant="body2">{prodadfaduct}</Typography>
           </ListItem>
         ))}
         <ListItem className={classes.listItem}>

@@ -8,6 +8,8 @@ router.options('/', function(req, res, next) {
   const pyProg = spawn('python', ['./ml/test.py']);
 
   res.set('Access-Control-Allow-Origin', '*');
+  res.set('Access-Control-Allow-Methods', '*');
+  res.set('Access-Control-Allow-Headers', '*');
   // res.set('Content-Type', 'text/plain');
 
   console.log(testData);
@@ -16,11 +18,14 @@ router.options('/', function(req, res, next) {
 
     console.log(data.toString());
     // res.render('index', { title: data.toString() });
-    
-    res.write(data.toString());
+
+    // res.write(data.toString());
     // res.end('end');
-    
-    
+    res.json({
+      tests: ["test1", "test2", "test3", "test4"]
+    })
+
+
 
   });
 })

@@ -64,16 +64,14 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const steps = ['Patient Details', 'Test Suggestions','Review'];
+const steps = ['Patient Details', 'Review'];
 
-function getStepContent(step) {
+function getStepContent(step, getter, setter) {
   switch (step) {
     case 0:
-      return <AddressForm />;
+      return <AddressForm setDataToSend={setter}/>;
     case 1:
-      return <PaymentForm />;
-    case 2:
-      return <Review />;
+      return <Review dataToSend={getter}/>;
     default:
       throw new Error('Unknown step');
   }
@@ -82,6 +80,7 @@ function getStepContent(step) {
 export default function Treehacks() {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
+  const [dataToSend, setDataToSend] = React.useState(null);
 
   const handleNext = () => {
     setActiveStep(activeStep + 1);
@@ -126,7 +125,7 @@ export default function Treehacks() {
               </React.Fragment>
             ) : (
               <React.Fragment>
-                {getStepContent(activeStep)}
+                {getStepContent(activeStep, dataToSend, setDataToSend)}
                 <div className={classes.buttons}>
                   {activeStep !== 0 && (
                     <Button onClick={handleBack} className={classes.button}>

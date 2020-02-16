@@ -8,43 +8,37 @@ import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
 
-export default function AddressForm() {
+export default function AddressForm({setDataToSend}) {
+  const [name, setName] = useState('');
+  const [gender, setGender] = useState(true);
   const [startDate, setStartDate] = useState(null);
+  const [notes, setNotes] = useState('');
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setDataToSend({
+      name: name,
+      startDate: startDate,
+      gender: gender,
+      notes: notes,
+    });
+  }
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
         Patient Details
       </Typography>
-      <Grid container spacing={3}>
-        <Grid item xs={12}>
-          <TextField
-            required
-            id="name"
-            name="name"
-            label="Name"
-            autoComplete="fname"
-          />
-        </Grid>
-
-        <Grid item xs={12}sm={6}>
-          <FormControlLabel
-            control={<Checkbox color="secondary" name="Male" value="yes" />}
-            label="Male"
-          />
-        </Grid>
-        <Grid item xs={12}sm={6}>
-          <FormControlLabel
-            control={<Checkbox color="secondary" name="Female" value="yes" />}
-            label="Female"
-          />
-        </Grid>
-        <Grid item xs={12}>
-          <DatePicker
-          selected={startDate}
-          onChange={setStartDate}
-          />
-        </Grid>
-      </Grid>
+      <form onSubmit = {handleSubmit}>
+      <label> Name: </label>
+      <input type = "text" value={name} required onChange = {(e) => setName(e.target.value)} />
+      <label> Date of Birth: </label>
+      <DatePicker selected={startDate} onChange={setStartDate}/>
+      <label> Gender: </label>
+      <FormControlLabel control={<Checkbox color="secondary" name="Male" value="yes" onChange = {(f) => setGender(true)}/>} label="Male"/>
+      <FormControlLabel control={<Checkbox color="secondary" name="Female" value="yes" onChange = {(f) => setGender(false)} />} label="Female"/>
+      <label> Notes: </label>
+      <input type = "text" value={notes} required onChange = {(e) => setNotes(e.target.value)} />
+      <input type = "submit" value = "Submit" />
+      </form>
     </React.Fragment>
   );
 }
