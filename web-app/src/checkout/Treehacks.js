@@ -64,7 +64,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const steps = ['Shipping address', 'Payment details', 'Review your order'];
+const steps = ['Patient Details', 'Test Suggestions','Review'];
 
 function getStepContent(step) {
   switch (step) {
@@ -79,7 +79,7 @@ function getStepContent(step) {
   }
 }
 
-export default function Checkout() {
+export default function Treehacks() {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
 
@@ -97,14 +97,14 @@ export default function Checkout() {
       <AppBar position="absolute" color="default" className={classes.appBar}>
         <Toolbar>
           <Typography variant="h6" color="inherit" noWrap>
-            Company name
+            Doctor Help
           </Typography>
         </Toolbar>
       </AppBar>
       <main className={classes.layout}>
         <Paper className={classes.paper}>
           <Typography component="h1" variant="h4" align="center">
-            Checkout
+            Treehacks
           </Typography>
           <Stepper activeStep={activeStep} className={classes.stepper}>
             {steps.map(label => (
