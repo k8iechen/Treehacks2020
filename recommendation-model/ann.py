@@ -2,6 +2,7 @@ import json
 import numpy as np
 # use natural language toolkit
 import nltk
+nltk.download('punkt')
 from nltk.stem.lancaster import LancasterStemmer
 stemmer = LancasterStemmer()
 
@@ -37,7 +38,7 @@ def bow(sentence, words, show_details=False):
 
 def getSynapse():
     # load our calculated synapse values
-    synapse_file = 'synapses.json' 
+    synapse_file = 'ANN/synapses.json' 
     with open(synapse_file) as data_file: 
         synapse = json.load(data_file) 
         synapse_0 = np.asarray(synapse['synapse0']) 
@@ -70,5 +71,3 @@ def getNLP(txt):
     for x in ans_temp:
         ans[int(x[0])-1] = x[1]
     return ans
-
-print getNLP("There was blood in patient's urine, Patient reported back pain")
