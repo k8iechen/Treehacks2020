@@ -70,14 +70,14 @@ function getStepContent(step, getter, setter) {
     case 0:
       return <AddressForm setDataToSend={setter}/>;
     case 1:
-      return <Review dataToSend={getter}/>;
+      return <Review dataToSend={getter} setDataToSend={setter}/>;
     default:
       throw new Error('Unknown step');
   }
 }
 
 function sendData(getter) {
-  fetch('http://localhost:3000/users', {
+  fetch('http://localhost:3000/final', {
     method: 'OPTIONS',
     headers: {
       'Accept': 'application/json',
@@ -97,6 +97,9 @@ export default function Treehacks() {
 
   const handleNext = () => {
     setActiveStep(activeStep + 1);
+    if (activeStep > 0) {
+      sendData(dataToSend);
+    }
   };
 
   const handleBack = () => {

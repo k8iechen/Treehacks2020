@@ -6,7 +6,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 
-export default function Review(dataToSend) {
+export default function Review(dataToSend, {setDataToSend}) {
   const [recommendedTests, setrecommendedTests] = useState([]);
   if (recommendedTests.length === 0) {
   fetch('http://localhost:3000/', {
@@ -37,7 +37,7 @@ export default function Review(dataToSend) {
         {recommendedTests.map(test => (
           <ListItem className={test} key={test}>
             <ListItemText primary={test}  />
-            <FormControlLabel control={<Checkbox color="secondary" name="" value="yes" />} label=""/>
+            <FormControlLabel control={<Checkbox color="secondary" name={test} value="yes" />} label=""/>
       </ListItem>
         ))}
       </List>

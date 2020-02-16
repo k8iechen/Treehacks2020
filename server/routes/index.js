@@ -4,6 +4,8 @@ var router = express.Router();
 var admin = require("firebase-admin");
 var firebase = require("firebase");
 
+// var PythonShell = require('python-shell');
+
 // var serviceAccount = require("path/to/serviceAccountKey.json");
 
 firebase.initializeApp({
@@ -29,15 +31,28 @@ router.options('/', function(req, res, next) {
     
     const testStr = JSON.stringify(testData);
     const snapStr = JSON.stringify(snap.val());
-    // console.log(testStr);
-    // console.log("\n");
-    // console.log(snapStr);
 
-    pyProg = spawn('python', ['./ml/test.py', testStr, snapStr]);
+    // pyProg = spawn('python', ['./ml/test.py', testStr, snapStr]);
+    pyProg = spawn('python3', ['./ml/recommendation-model/recommendation_model.py', testStr, snapStr]);
 
     res.set('Access-Control-Allow-Origin', '*');
     res.set('Access-Control-Allow-Methods', '*');
     res.set('Access-Control-Allow-Headers', '*');
+    
+    // let options = {
+    //   mode: 'text',
+    //   scriptPath: './ml/recommendation-model/recommendation_model.py',
+    //   args: [testStr, snapStr]
+    // };
+
+    // res.json({
+    //   tests: await PythonShell.run('recommendation_model.py', options, function (err, results) {
+        //On 'results' we get list of strings of all print done in your py scripts sequentially. 
+    //     if (err) throw err;
+  
+    //     resolve(results);
+    //   })
+    // })
 
     pyProg.stdout.on('data', function(data) {
       console.log(data.toString());
@@ -79,5 +94,16 @@ router.options('/', function(req, res, next) {
 
   // });
 })
+
+router.options('/final', function(req, res, next) {
+  const testData = req.body;
+  var userRef = ref.push(testData);
+
+  res.set('Access-Control-Allow-Origin', '*');
+  res.set('Access-Control-Allow-Methods', '*');
+  res.set('Access-Control-Allow-Headers', '*');
+  res.end('end');
+
+  });
 
 module.exports = router;
